@@ -27,7 +27,7 @@
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
-set(PER_BLOCK_CHECKPOINT 0)
+
 if (WIN32 OR STATIC)
   add_definitions(-DSTATICLIB)
   # miniupnp changed their static define
