@@ -417,13 +417,20 @@ bool Blockchain::init(BlockchainDB* db, const network_type nettype, bool offline
       m_hardfork->add_fork(mainnet_hard_forks[n].version, mainnet_hard_forks[n].height, mainnet_hard_forks[n].threshold, mainnet_hard_forks[n].time);
   }
   m_hardfork->init();
-
+   MINFO("Blockchain not loaded, generating genesis block.");
+    block bl;
+    block_verification_context bvc = boost::value_initialized<block_verification_context>();
+    generate_genesis_block(bl, get_config(m_nettype).GENESIS_TX, get_config(m_nettype).GENESIS_NONCE);
+    db_wtxn_guard wtxn_guard(m_db);
+    add_new_block(bl, bvc);
+    CHECK_AND_ASSERT_MES(!bvc.m_verifivation_failed, false, "Failed to add genesis block to blockchain");
   m_db->set_hard_fork(m_hardfork);
 
   // if the blockchain is new, add the genesis block
   // this feels kinda kludgy to do it this way, but can be looked at later.
   // TODO: add function to create and store genesis block,
   //       taking testnet into account
+   MINFO("Blockchain not loaded, generating genesis block.");
   if(!m_db->height())
   {
     MINFO("Blockchain not loaded, generating genesis block.");
