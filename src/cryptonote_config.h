@@ -42,8 +42,8 @@
 #define CRYPTONOTE_MAX_TX_PER_BLOCK                     0x10000000
 #define CRYPTONOTE_PUBLIC_ADDRESS_TEXTBLOB_VER          0
 #define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            10
-#define CURRENT_TRANSACTION_VERSION                     0
-#define CURRENT_BLOCK_MAJOR_VERSION                     0
+#define CURRENT_TRANSACTION_VERSION                     2
+#define CURRENT_BLOCK_MAJOR_VERSION                     1
 #define CURRENT_BLOCK_MINOR_VERSION                     0
 #define CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT              60*60*2
 #define CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE             5
@@ -179,7 +179,7 @@ namespace config
   boost::uuids::uuid const NETWORK_ID = { {
       0x42 ,0x04, 0x20, 0x42 , 0x04, 0x20 , 0x42, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x10
     } }; // Bender's nightmare
-  std::string const GENESIS_TX = "013c01ff0001ffffffffffff03029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121017767aafcde9be00dcfd098715ebcf7f410daebc582fda69d24a28e9d0bc890d1";
+  std::string const GENESIS_TX = "";
   uint32_t const GENESIS_NONCE = 10042;
 
   namespace testnet
