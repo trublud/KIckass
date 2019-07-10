@@ -60,12 +60,12 @@ public:
     : m_server{protocol.get()}
   {
     //initialize objects
-    MGINFO("Initializing p2p server...");
+    MGINFO("Trying to Kickass..");
     if (!m_server.init(vm))
     {
-      throw std::runtime_error("Failed to initialize p2p server.");
+      throw std::runtime_error("Failed to kickass..");
     }
-    MGINFO("p2p server initialized OK");
+    MGINFO("Kicking Ass!");
   }
 
   t_node_server & get()
